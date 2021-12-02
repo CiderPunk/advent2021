@@ -1,54 +1,7 @@
-import { readFile } from "fs/promises"
+import { day1A, day1B } from "./day1"
+import { day2A, day2B } from "./day2"
 
-type offset = {dist:number,depth:number}
-
-const day2A = ()=>{
- readFile('./day2.txt').then(buffer=>{
-    const lines = buffer.toString().split(/\r?\n/)
-    const result = lines.reduce<offset>((p:offset,c:string)=>{
-      const parts = c.split(' ')
-      const val = Number.parseInt(parts[1])
-      switch (parts[0]){
-        case "forward":
-          p.dist += val
-          break
-        case "down":
-          p.depth += val
-          break
-        case "up":
-          p.depth -= val
-          break
-      }
-      return p;
-    }, {dist:0, depth:0})
-    console.log(result.depth * result.dist)
- })
-}
-
-type aimOffset = {aim:number, dist:number,depth:number}
-const day2B = ()=>{
-  readFile('./day2.txt').then(buffer=>{
-     const lines = buffer.toString().split(/\r?\n/)
-     const result = lines.reduce<aimOffset>((p:aimOffset,c:string)=>{
-       const parts = c.split(' ')
-       const val = Number.parseInt(parts[1])
-       switch (parts[0]){
-         case "forward":
-           p.dist += val
-           p.depth += val * p.aim
-           break
-         case "down":
-           p.aim += val
-           break
-         case "up":
-           p.aim -= val
-           break
-       }
-       return p;
-     }, {aim:0, dist:0, depth:0})
-
-     console.log(result.depth * result.dist)
-  })
- }
-
-day2B()
+day1A().then(val=>{ console.log(`Day 1A: ${val}`) })
+day1B().then(val=>{ console.log(`Day 1B: ${val}`) })
+day2A().then(val=>{ console.log(`Day 2A: ${val}`) })
+day2B().then(val=>{ console.log(`Day 2B: ${val}`) })
