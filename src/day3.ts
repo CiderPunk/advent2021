@@ -38,7 +38,7 @@ export const day3B = async ():Promise<number>=>{
         ox = ox.filter(p=>{ return p[i] == filterOx })
       }
       if (cs.length > 1){
-        const countCs  = cs.reduce<number>((p:number,c)=>{ return p + parseInt(c[i]) }, 0)
+        const countCs  = cs.reduce<number>((p:number,c)=>p + parseInt(c[i]), 0)
         var filterCs = countCs < (cs.length / 2) ? "1" : "0";
         cs = cs.filter(p=>{ return p[i] == filterCs })
       }
