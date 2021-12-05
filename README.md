@@ -5,7 +5,9 @@ typescript
 
 to build
 ```npm install
-npm run build```
+npm run build
+```
 
 to run
-```npm start```
+```npm start
+```
