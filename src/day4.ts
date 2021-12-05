@@ -1,5 +1,4 @@
 import { readFile } from "fs/promises"
-import { type } from "os"
 
 export const day4A = async ():Promise<number>=>{
   return readFile('./day4.txt').then(buffer=>{
