@@ -11,7 +11,7 @@ class Vec2{
   scale= (v:number)=> new Vec2(this.x * v, this.y*v )
 }
 
-export const day5A = async ():Promise<number>=>{
+export const day5A = async (skipDiags:boolean = true):Promise<number>=>{
   return readFile('./day5.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
     //get coords
@@ -34,7 +34,7 @@ export const day5A = async ():Promise<number>=>{
     vents.forEach(vent=>{
       const diff = vent[1].sub(vent[0])
       //only horizontal or verticaL lines for now...
-      if (diff.x == 0 || diff.y == 0){
+      if (!skipDiags || diff.x == 0 || diff.y == 0){
         ventCount++
         const len = diff.len()
         const unit = diff.unitize()
@@ -55,44 +55,7 @@ export const day5A = async ():Promise<number>=>{
 
 
 export const day5B = async ():Promise<number>=>{
-  return readFile('./day5.txt').then(buffer=>{
-    const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
-    //get coords
-    const vents = lines.map(p=>p.split(" -> ",2).map(part=> {
-        let x,y
-        [x,y] =  part.split(',',2).map(n=>parseInt(n))
-        return new Vec2(x,y)
-      }))
-    //init our map array
-    const _mapSize = 1000 
-    const map = new Array<Array<number>>()
-    for (let i = 0; i<_mapSize; i++){
-      map[i] = new Array<number>()
-      for (let j = 0; j < _mapSize; j++){
-        map[i][j] = 0
-      }
-    }
-    let ventCount = 0
-    //plot vents on map
-    vents.forEach(vent=>{
-      const diff = vent[1].sub(vent[0])
-      //OMGOSH! future proofing works!
-      //if (diff.x == 0 || diff.y == 0){
-        ventCount++
-        const len = diff.len()
-        const unit = diff.unitize()
-        //+1 so we include the end!
-        for (let i =0; i< len+1; i++){
-          const target = vent[0].add(unit.scale(i))
-          map[target.x][target.y]++
-        }
-      //}
-    })
-    //dumpMap(map)
-    //count doubles
-    let result = map.reduce<number>((p1,c1)=> c1.reduce((p2,c2)=>p2 += (c2 > 1 ? 1 : 0),p1),0)
-    return result
- })
+  return day5A(false)
 }
 
 
