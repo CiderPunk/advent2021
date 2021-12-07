@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "fs/promises"
  
+//bad way 
 export const day6A = async (days:number = 80):Promise<number>=>{
   return readFile('./day6.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
@@ -18,6 +19,7 @@ export const day6A = async (days:number = 80):Promise<number>=>{
  })
 }
 
+//better way
 export const day6B = async (days:number=256):Promise<number>=>{
   return readFile('./day6.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
