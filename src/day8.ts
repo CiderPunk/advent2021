@@ -66,7 +66,7 @@ export const day8B = async ( input:string = './input/day8.txt'):Promise<number>=
       lookup[4] = sig[2]
       lookup[8] = sig[9]
 
-      for(let i = 0; i<sig.length; i++){
+      for(let i = sig.length -1; i> -1; i--){
         if (lookup.indexOf(sig[i]) > -1){
           sig[i]=0
         }
@@ -76,21 +76,31 @@ export const day8B = async ( input:string = './input/day8.txt'):Promise<number>=
             lookup[3] = sig[i]
             sig[i] = 0 
           }
+          //5 test
+          else if ((sig[i] & lookup[6]) == sig[i]){
+            lookup[5] = sig[i]
+          }
+          else{
+            lookup[2] = sig[i]
+          }
         }  
         else{ //0,6,9
           //6 test
           if ((sig[i] & lookup[1]) != lookup[1] ){
             lookup[6] = sig[i]
           }
+          //9 test
           else if ((sig[i] & lookup[4]) == lookup[4]){
             lookup[9] = sig[i]
           }
           else{
+            //else 0
             lookup[0] = sig[i]
           }
           sig[i] = 0
         }
       }
+      /*
       //second parse for 2 and 5
       for(let i = 0; i<sig.length; i++){
         if (sig[i] != 0){
@@ -102,10 +112,10 @@ export const day8B = async ( input:string = './input/day8.txt'):Promise<number>=
           }
         }
       }
+      */
     const res = display.map(v=>lookup.indexOf(toBin(v)))
     return total + (res[0] * 1000) + (res[1] * 100) + (res[2] * 10) + res[3]
  },0)
 })
 }
-
-//day8B('./input/day8.txt').then(r=>console.log(r))
+day8B('./input/day8.txt').then(r=>console.log(r))
