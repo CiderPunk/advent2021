@@ -2,7 +2,7 @@ import { readFile, writeFile } from "fs/promises"
  
 //bad way 
 export const day6A = async (days:number = 80):Promise<number>=>{
-  return readFile('./day6.txt').then(buffer=>{
+  return readFile('./input/day6.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
     const fish = lines[0].split(',').map(v=>parseInt(v))
     for(let d = 0; d<days; d++){
@@ -21,7 +21,7 @@ export const day6A = async (days:number = 80):Promise<number>=>{
 
 //better way
 export const day6B = async (days:number=256):Promise<number>=>{
-  return readFile('./day6.txt').then(buffer=>{
+  return readFile('./input/day6.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
     const fish = lines[0].split(',').map(v=>parseInt(v))
     const tanks = [0,0,0,0,0,0,0,0,0]

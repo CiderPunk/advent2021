@@ -1,6 +1,6 @@
 import { readFile, writeFile } from "fs/promises"
  
-const day7 = async ( fuelCalc:(dist:number)=>number, input:string = './day7.txt'):Promise<number>=>{
+const day7 = async ( fuelCalc:(dist:number)=>number, input:string = './input/day7.txt'):Promise<number>=>{
   return readFile(input).then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
     const crabs = lines[0].split(',').map(v=>parseInt(v))
@@ -15,6 +15,7 @@ const day7 = async ( fuelCalc:(dist:number)=>number, input:string = './day7.txt'
  })
 }
 
+//fuel calculation functions
 const fuelCalcA = (dist:number)=>{ return dist }
 
 const fuelCalcB = (dist:number)=>{ 

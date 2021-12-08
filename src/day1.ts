@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises"
 
 export const day1A = async():Promise<number>=>{
-  return readFile("day1.txt").then((buffer)=>{
+  return readFile("./input/day1.txt").then((buffer)=>{
     const lines = buffer.toString().split(/\r?\n/)
     return lines.reduce<number>((p, c, i)=> {
       if (i > 0){
@@ -14,7 +14,7 @@ export const day1A = async():Promise<number>=>{
 
 const winsize = 3
 export const day1B = async():Promise<number>=>{
-return readFile("day1.txt").then((buffer)=>{
+return readFile("./input/day1.txt").then((buffer)=>{
     const lines = buffer.toString().split(/\r?\n/)
     return  lines.reduce<number>((p, c, i)=> {
       if (i < winsize){

@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises"
 
 export const day3A = async ():Promise<number>=>{
- return readFile('./day3.txt').then(buffer=>{
+ return readFile('./input/day3.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/)
     const result = lines.reduce<Array<number>>((p:Array<number>,c:string)=>{
       for (let i = 0; i < c.length; i++ ){
@@ -26,7 +26,7 @@ export const day3A = async ():Promise<number>=>{
 
 
 export const day3B = async ():Promise<number>=>{
-  return readFile('./day3.txt').then(buffer=>{
+  return readFile('./input/day3.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/)
     //copy/filter out blank line
     let ox = lines.filter(l=>l.length > 0)

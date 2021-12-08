@@ -12,7 +12,7 @@ class Vec2{
 }
 
 export const day5A = async (skipDiags:boolean = true):Promise<number>=>{
-  return readFile('./day5.txt').then(buffer=>{
+  return readFile('./input/day5.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
     //get coords
     const vents = lines.map(p=>p.split(" -> ",2).map(part=> {

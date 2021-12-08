@@ -3,7 +3,7 @@ import { readFile } from "fs/promises"
 type offset = {dist:number,depth:number}
 
 export const day2A = async ():Promise<number>=>{
- return readFile('./day2.txt').then(buffer=>{
+ return readFile('./input/day2.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/)
     const result = lines.reduce<offset>((p:offset,c:string)=>{
       const parts = c.split(' ')
@@ -27,7 +27,7 @@ export const day2A = async ():Promise<number>=>{
 
 type aimOffset = {aim:number, dist:number,depth:number}
 export const day2B = async () : Promise<number>=>{
-  return readFile('./day2.txt').then(buffer => {
+  return readFile('./input/day2.txt').then(buffer => {
     const lines = buffer.toString().split(/\r?\n/)
     const result = lines.reduce<aimOffset>((p: aimOffset, c: string) => {
       const parts = c.split(' ')

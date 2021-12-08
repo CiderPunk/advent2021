@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises"
 
 export const day4A = async ():Promise<number>=>{
-  return readFile('./day4.txt').then(buffer=>{
+  return readFile('./input/day4.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/)
     const calls = lines[0].split(',').map(v=>parseInt(v))
     const cards = new Array<Card>()
@@ -19,7 +19,7 @@ export const day4A = async ():Promise<number>=>{
 }
 
 export const day4B = async ():Promise<number>=>{
-  return readFile('./day4.txt').then(buffer=>{
+  return readFile('./input/day4.txt').then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/)
     const calls = lines[0].split(',').map(v=>parseInt(v.trim()))
     let cards = new Array<Card>()
