@@ -118,4 +118,4 @@ export const day8B = async ( input:string = './input/day8.txt'):Promise<number>=
  },0)
 })
 }
-day8B('./input/day8.txt').then(r=>console.log(r))
+//day8B('./input/day8.txt').then(r=>console.log(r))

@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "fs/promises"
 import { getTypeParameterOwner } from "typescript"
  
+
 export const day9A = async (input:string = './input/day9.txt'):Promise<number>=>{
   return readFile(input).then(buffer=>{
     const lines = buffer.toString().split(/\r?\n/).filter(l=>l.length > 0)
@@ -14,14 +15,16 @@ export const day9A = async (input:string = './input/day9.txt'):Promise<number>=>
       })
     })
 
+    const size = new coord(map.length, map[0].length)
     return map.reduce((total,col,x)=>{ 
       return col.reduce((rowTotal,cell,y)=>{
-        if ((y==0 || map[x][y-1] > cell) 
-          && (y == col.length-1 || map[x][y+1] > cell)
-          && (x == 0 || map[x-1][y] > cell)
-          && (x == map.length-1 || map[x+1][y] > cell)){
-            return rowTotal + cell + 1
-          }
+        const prospect = new coord(x,y)
+        if ((dirs.reduce((p,c)=>{ 
+          const test = prospect.add(c)
+          return  p && (!test.inBounds(size) || (map[test.x][test.y] > cell))
+        },true))){
+          return rowTotal + cell + 1 
+        }
         return rowTotal
       },total) 
     },0)
@@ -44,15 +47,16 @@ export const day9B = async (input:string = './input/day9.txt'):Promise<number>=>
 
 
     const basins = new Array<number>()
+    const size = new coord(map.length, map[0].length)
     //find basins
     map.forEach((col,x)=>{ 
       col.forEach((cell,y)=>{
-      if ((y==0 || map[x][y-1] > cell) 
-        && (y == col.length-1 || map[x][y+1] > cell)
-        && (x == 0 || map[x-1][y] > cell)
-        && (x == map.length-1 || map[x+1][y] > cell)){
-          basins.push(findSize(map, x,y)
-          )
+        const target = new coord(x,y)
+        if ((dirs.reduce((p,c)=>{ 
+          const test = target.add(c)
+          return  p && (!test.inBounds(size) || (map[test.x][test.y] > cell))
+        },true))){
+          basins.push(findSize(map, x,y))
         }
       }) 
     })
@@ -87,10 +91,8 @@ const grow = (map:number[][], size:coord, found:coord[], current:coord)=>{
   found.push(current)
   dirs.forEach(dir => {
     const prospect = current.add(dir)
-    if (prospect.inBounds(size) ){
-      if ( found.findIndex(p=>p.equal(prospect)) == -1 && map[prospect.x][prospect.y] != 9){
-        grow(map, size, found, prospect)
-      }
+    if (prospect.inBounds(size) && found.findIndex(p=>p.equal(prospect)) == -1 && map[prospect.x][prospect.y] != 9){
+      grow(map, size, found, prospect)
     }
   })
 }
@@ -104,4 +106,4 @@ const findSize = (map: number[][], x: number, y: number): number =>{
 
 
 //day9A().then(r=>console.log(r))
-//day9B().then(r=>console.log(r))
+day9B().then(r=>console.log(r))
