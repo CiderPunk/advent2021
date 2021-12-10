@@ -106,4 +106,4 @@ const findSize = (map: number[][], x: number, y: number): number =>{
 
 
 //day9A().then(r=>console.log(r))
-day9B().then(r=>console.log(r))
+//day9B().then(r=>console.log(r))

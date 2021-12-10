@@ -1,4 +1,5 @@
 import { day1A, day1B } from "./day1"
+import { day10A, day10B } from "./day10"
 import { day2A, day2B } from "./day2"
 import { day3A, day3B } from "./day3"
 import { day4A, day4B } from "./day4"
@@ -26,6 +27,8 @@ day8A().then(val=>{ console.log(`Day 8A: ${val}`) })
 day8B().then(val=>{ console.log(`Day 8B: ${val}`) })
 day9A().then(val=>{ console.log(`Day 9A: ${val}`) })
 day9B().then(val=>{ console.log(`Day 9B: ${val}`) })
+day10A().then(val=>{ console.log(`Day 10A: ${val}`) })
+day10B().then(val=>{ console.log(`Day 10B: ${val}`) })
 
 
 
