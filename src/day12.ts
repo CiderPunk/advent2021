@@ -1,7 +1,6 @@
 import { readFile, writeFile } from "fs/promises"
-import { compassRose } from "./coord"
-import { coord } from "./day9"
- 
+
+
 
 class node{
   readonly isMajor:boolean

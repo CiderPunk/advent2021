@@ -9,6 +9,12 @@ export class coord{
   inBounds(size:coord):boolean{
     return (this.x < size.x && this.x >=0 && this.y < size.y && this.y>=0)
   }
+
+  hash():number{
+    return this.x + this.y * 1000000
+
+  }
+
 }
 
 const north = new coord(0,-1)

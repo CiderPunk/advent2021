@@ -1,6 +1,5 @@
 import { readFile, writeFile } from "fs/promises"
-import { compassRose } from "./coord"
-import { coord } from "./day9"
+import { compassRose, coord } from "./coord"
  
 
 export const day11A = async (cycles = 100, input:string = './input/day11.txt'):Promise<number>=>{
