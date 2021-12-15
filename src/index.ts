@@ -3,6 +3,8 @@ import { day10A, day10B } from "./day10"
 import { day11A, day11B } from "./day11"
 import { day12A, day12B } from "./day12"
 import { day13A, day13B } from "./day13"
+import { day14A, day14B } from "./day14"
+import { day15A, day15B } from "./day15"
 import { day2A, day2B } from "./day2"
 import { day3A, day3B } from "./day3"
 import { day4A, day4B } from "./day4"
@@ -38,6 +40,10 @@ day12A().then(val=>{ console.log(`Day 12A: ${val}`) })
 day12B().then(val=>{ console.log(`Day 12B: ${val}`) })
 day13A().then(val=>{ console.log(`Day 13A: ${val}`) })
 day13B().then(val=>{ console.log(`Day 13B:\n${val}`) })
+day14A().then(val=>{ console.log(`Day 14A: ${val}`) })
+day14B().then(val=>{ console.log(`Day 14B: ${val}`) })
+day15A().then(val=>{ console.log(`Day 15A: ${val}`) })
+day15B().then(val=>{ console.log(`Day 15B: ${val}`) })
 
 
 

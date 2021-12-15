@@ -12,19 +12,29 @@ export class coord{
 
   hash():number{
     return this.x + this.y * 1000000
-
   }
+  
+  public static readonly  north = new coord(0,-1)
+  public static readonly  northEast = new coord(1,-1)
+  public static readonly  east = new coord(1,0)
+  public static readonly  southEast = new coord(1,1)
+  public static readonly  south = new coord(0,1)
+  public static readonly  southWest = new coord(-1,1)
+  public static readonly  west = new coord(-1,0)
+  public static readonly  northWest = new coord(-1,-1)
+
 
 }
 
-const north = new coord(0,-1)
-const northEast = new coord(1,-1)
-const east = new coord(1,0)
-const southEast = new coord(1,1)
-const south = new coord(0,1)
-const southWest = new coord(-1,1)
-const west = new coord(-1,0)
-const northWest = new coord(-1,-1)
 
-export const dirs:Array<coord> = [north,south, east, west]
-export const compassRose:Array<coord> = [north, northEast, east, southEast, south, southWest, west, northWest]
+export const dirs:Array<coord> = [ coord.north,coord.south, coord.east, coord.west]
+export const compassRose:Array<coord> = [
+  coord.north,
+  coord.northEast, 
+  coord.east, 
+  coord.southEast, 
+  coord.south, 
+  coord.southWest, 
+  coord.west, 
+  coord.northWest
+]
