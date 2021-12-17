@@ -1,5 +1,4 @@
 import { readFile, writeFile } from "fs/promises"
-import { getTrailingCommentRanges } from "typescript"
 import { coord, rect } from "./coord"
 
 
@@ -16,17 +15,12 @@ export const day17A =  async(input:string = './input/day17.txt'):Promise<number>
   return  day17(input).then(target=>{
     let vY = 0 - target.tl.y -1
     let y = 0
-    //while above target or moving up
-    while (y > target.br.y && vY > 0){
+    //while  moving up
+    while ( vY > 0){
       y+= vY
       vY--
-      if (vY == 0){
-        //max height
-        return y
-      }
     }
-    //fail
-    return 0
+    return y
   })
 }
 
