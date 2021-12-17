@@ -1,9 +1,4 @@
 import { readFile, writeFile } from "fs/promises"
-import { monitorEventLoopDelay } from "perf_hooks"
-import { createRestTypeNode, isThisTypeNode, textChangeRangeIsUnchanged } from "typescript"
-import { compassRose, coord } from "./coord"
- 
-const searchDirs = [ coord.east, coord.south, coord.north, coord.west]
 
 class BinData{
 
@@ -123,10 +118,10 @@ const day16 = async (input:string):Promise<Packet>=>{
 }
 
 export const day16A =  async(input:string = './input/day16.txt'):Promise<number>=>{
-  return day16("./input/day16.txt").then(p=>p.versionSum() )
+  return day16(input).then(p=>p.versionSum() )
 }
 export const day16B =  async(input:string = './input/day16.txt'):Promise<number>=>{
-  return day16("./input/day16.txt").then(p=>p.value() )
+  return day16(input).then(p=>p.value() )
 }
 
 //day16A().then(r=>console.log(r.toString()))
