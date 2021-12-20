@@ -63,5 +63,5 @@ export const day14B = async ():Promise<number>=>{
   return day14(40)
 }
 
-day14A().then(r=>console.log(r))
-day14B().then(r=>console.log(r))
+//day14A().then(r=>console.log(r))
+//day14B().then(r=>console.log(r))
