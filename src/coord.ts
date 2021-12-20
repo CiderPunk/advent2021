@@ -22,6 +22,7 @@ export class coord{
   public static readonly  right = new coord(1,0)
 
 
+  public static readonly  zero  = new coord(0,0)
   public static readonly  north = new coord(0,-1)
   public static readonly  northEast = new coord(1,-1)
   public static readonly  east = new coord(1,0)

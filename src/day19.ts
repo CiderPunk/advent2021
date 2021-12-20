@@ -268,4 +268,4 @@ export const day19B = async (input:string  = "./input/day19.txt"):Promise<number
 }
 
 //day19A("./input/day19.txt").then(r=>{ console.log(r) })
-day19B().then(r=>{ console.log(r) })
+//day19B().then(r=>{ console.log(r) })
