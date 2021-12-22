@@ -11,6 +11,7 @@ import { day18A, day18B } from "./day18"
 import { day19A, day19B } from "./day19"
 import { day2A, day2B } from "./day2"
 import { day20A, day20B } from "./day20"
+import { day21A, day21B } from "./day21"
 import { day3A, day3B } from "./day3"
 import { day4A, day4B } from "./day4"
 import { day5A, day5B } from "./day5"
@@ -59,7 +60,6 @@ day19A().then(val=>{ console.log(`Day 19A: ${val}`) })
 day19B().then(val=>{ console.log(`Day 19B: ${val}`) })
 day20A().then(val=>{ console.log(`Day 20A: ${val}`) })
 day20B().then(val=>{ console.log(`Day 20B: ${val}`) })
-
-
-
+day21A().then(val=>{ console.log(`Day 21A: ${val}`) })
+day21B().then(val=>{ console.log(`Day 21B: ${val}`) })
 
