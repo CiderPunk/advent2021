@@ -14,7 +14,7 @@ class DeterministicDie{
       tote+= (this.rolls++ % this.max) + 1    
     }
     return tote
-  }
+  }   
 }
 
 interface player {pos:number, score:number}
